@@ -12,6 +12,9 @@ type Stack []int
 
 //Push function pushes an element to the stack
 func (s *Stack) Push(i ...int) (int, bool) {
+	if len(i)+len(*s) > MAX {
+		return -1, false
+	}
 	if len(*s) == MAX {
 		log.Println("not pushed")
 		return -1, false
